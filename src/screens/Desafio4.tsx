@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
+import { formatarPercentual } from '../utils/formatValue';
 
 const faturamento = {
   SP: 67836.43,
@@ -14,11 +15,14 @@ export default function Desafio4() {
 
   return (
     <View style={{ padding: 20 }}>
-      {Object.entries(faturamento).map(([estado, valor]) => (
+      {Object.entries(faturamento).map(([estado, valor]) => {
+      const percentual = valor / total;
+      return (
         <Text key={estado}>
-          {estado}: {((valor / total) * 100).toFixed(2)}%
+            {estado}: {formatarPercentual(percentual)}
         </Text>
-      ))}
+  );
+})}
     </View>
   );
 }

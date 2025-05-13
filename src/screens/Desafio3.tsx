@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { View, Text } from 'react-native';
+import { formatarValor } from '../utils/formatValue';
 
 const dados = [
   { dia: 1, valor: 22174.1664 },
@@ -28,8 +29,8 @@ export default function Desafio3() {
 
   return (
     <View style={{ padding: 20 }}>
-      <Text>Menor valor: R${info.menor.toFixed(2)}</Text>
-      <Text>Maior valor: R${info.maior.toFixed(2)}</Text>
+      <Text>Menor valor: {formatarValor(info.menor)}</Text>
+      <Text>Maior valor: {formatarValor(info.maior)}</Text>
       <Text>Dias acima da média: {info.acimaMedia}</Text>
     </View>
   );
